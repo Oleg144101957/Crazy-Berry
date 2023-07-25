@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
@@ -26,6 +27,8 @@ fun EuphoriaScene() {
 
     val crazyViewModel = viewModel<CrazyViewModel>()
 
+    val scores = crazyViewModel.existenceScores.collectAsState()
+
     Box(modifier = Modifier.fillMaxSize()){
         Image(
             painter = painterResource(id = R.drawable.surface),
@@ -35,6 +38,28 @@ fun EuphoriaScene() {
         )
 
         Gameplay(crazyViewModel)
+        Scores(scores = scores.value)
+    }
+}
+@Composable
+fun BoxScope.Scores(scores: Int){
+    Box(modifier = Modifier
+        .fillMaxWidth()
+        .align(Alignment.TopCenter)){
+
+        Image(
+            painter = painterResource(id = R.drawable.serendipity),
+            contentDescription = "scores background",
+            modifier = Modifier
+                .align(Alignment.Center)
+        )
+
+        Text(
+            text = "$scores scores",
+            color = CrazyWhite,
+            modifier = Modifier
+                .align(Alignment.Center)
+        )
     }
 }
 

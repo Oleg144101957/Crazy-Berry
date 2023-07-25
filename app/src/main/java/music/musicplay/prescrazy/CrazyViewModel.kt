@@ -10,6 +10,10 @@ import music.musicplay.domain.StarMenu
 
 class CrazyViewModel : ViewModel() {
 
+    val existenceScores : MutableStateFlow<Int> = MutableStateFlow(0)
+    val existenceLives : MutableStateFlow<Int> = MutableStateFlow(2)
+    val existenceTime : MutableStateFlow<Int> = MutableStateFlow(20)
+
     val existenceList: MutableStateFlow<List<PlayByte>> = MutableStateFlow(listOf(
         PlayByte(0, scenePicture = R.drawable.bumblebee, background = R.drawable.petrichor, additionalState = AdditionalState("petrichor"), starMenu = StarMenu(false)),
         PlayByte(1, scenePicture = R.drawable.nebulous, background = R.drawable.petrichor, additionalState = AdditionalState("petrichor"), starMenu = StarMenu(false)),
