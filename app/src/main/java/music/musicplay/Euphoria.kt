@@ -1,5 +1,6 @@
 package music.musicplay
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -16,6 +17,11 @@ class Euphoria : ComponentActivity() {
                 EuphoriaScene()
             }
         }
+    }
+
+    fun navigateToQuintessential(){
+        val intentQuintessential = Intent(this, Quintessential::class.java)
+        startActivity(intentQuintessential)
     }
 
 }

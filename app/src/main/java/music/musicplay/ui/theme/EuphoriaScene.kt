@@ -2,6 +2,7 @@ package music.musicplay.ui.theme
 
 import android.content.Context
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
@@ -12,17 +13,22 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import music.musicplay.Euphoria
 import music.musicplay.R
 import music.musicplay.Stab
 import music.musicplay.prescrazy.CrazyViewModel
@@ -122,6 +128,10 @@ fun BoxScope.Gameplay(vm: CrazyViewModel){
 
     )
 
+    if (existenceTime.value == 0){
+        GameOverScreen(" have no time")
+    }
+
 
     when (existenceLives.value) {
         2 -> {
@@ -160,7 +170,7 @@ fun BoxScope.Gameplay(vm: CrazyViewModel){
         else -> {
 
             //Game over
-            GameOverScreen()
+            GameOverScreen("a lot of bombs")
 
         }
     }
@@ -168,12 +178,32 @@ fun BoxScope.Gameplay(vm: CrazyViewModel){
 
 
 @Composable
-fun BoxScope.GameOverScreen(){
-    Box(modifier = Modifier.fillMaxSize()){
+fun BoxScope.GameOverScreen(msg: String){
+
+    val activity = LocalContext.current as Euphoria
+
+    Box(modifier = Modifier
+        .fillMaxSize()
+        .background(CrazyBlack)
+
+    ){
         Text(
-            text = "Game Over",
+            text = "Game Over $msg",
             color = CrazyWhite,
             modifier = Modifier.align(Alignment.Center)
+        )
+
+        Image(
+            painter = rememberVectorPainter(image = Icons.Default.Close),
+            contentDescription = "Close button",
+            colorFilter = ColorFilter.tint(CrazyWhite),
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .padding(bottom = 16.dp)
+                .size(64.dp)
+                .clickable {
+                    activity.navigateToQuintessential()
+                }
         )
     }
 }

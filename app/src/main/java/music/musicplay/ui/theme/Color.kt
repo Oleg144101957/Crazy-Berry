@@ -12,4 +12,5 @@ val Pink40 = Color(0xFF7D5260)
 
 
 val CrazyWhite = Color(0xFFFFE0EA)
+val CrazyBlack = Color(0xFF300513)
 
