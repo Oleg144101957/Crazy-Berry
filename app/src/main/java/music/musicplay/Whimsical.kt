@@ -12,7 +12,7 @@ class Whimsical : ComponentActivity()  {
         super.onCreate(savedInstanceState)
         setContent{
             CrazyBerryTheme {
-                //Game activity
+                //Rules
                 WhimsicalScene()
             }
         }
