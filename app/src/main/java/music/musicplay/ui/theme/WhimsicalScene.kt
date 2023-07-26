@@ -35,8 +35,4 @@ fun WhimsicalScene(){
                 .align(Alignment.Center)
         )
     }
-
-
-
-
 }

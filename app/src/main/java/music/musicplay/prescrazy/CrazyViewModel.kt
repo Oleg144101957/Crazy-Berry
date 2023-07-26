@@ -82,13 +82,11 @@ class CrazyViewModel : ViewModel() {
             choicePosition = position
         } else {
             if (choiceImage == existenceList.value[position].scenePicture){
-                Log.d("11111", "images are the same")
                 addScores(position)
                 choiceImage = null
                 choicePosition = null
             } else {
 
-                Log.d("11111", "images are different")
                 viewModelScope.launch {
                     closeElements(position, choicePosition!!)
                 }
