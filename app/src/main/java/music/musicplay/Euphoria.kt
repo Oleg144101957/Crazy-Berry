@@ -9,6 +9,8 @@ import music.musicplay.ui.theme.EuphoriaScene
 
 class Euphoria : ComponentActivity() {
 
+    //Game
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -22,6 +24,10 @@ class Euphoria : ComponentActivity() {
     fun navigateToQuintessential(){
         val intentQuintessential = Intent(this, Quintessential::class.java)
         startActivity(intentQuintessential)
+    }
+
+    override fun onBackPressed() {
+        //do nothing
     }
 
 }

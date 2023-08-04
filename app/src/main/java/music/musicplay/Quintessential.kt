@@ -35,4 +35,8 @@ class Quintessential : ComponentActivity() {
         val intentWhimsical = Intent(this, Whimsical::class.java)
         startActivity(intentWhimsical)
     }
+
+    override fun onBackPressed() {
+        //do nothing
+    }
 }

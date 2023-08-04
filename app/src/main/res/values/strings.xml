@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Crazy Berry</string>
+    <string name="rules">Overview:\nWelcome to the whimsical world of \"Crazy Berry,\" where you\'ll embark on a fruity adventure that\'s filled with fun, challenges, and delicious rewards! Your mission is to find matching berry pairs in the vibrant and chaotic Berryland.\n\nGameplay:\nIn \"Crazy Berry,\" players navigate through different levels, each filled with an array of colorful and unique berries. Your task is to find matching pairs of berries by flipping them over and remembering their positions. But be warned - the Crazy Berry world is full of surprises, and not all berries are as they seem!</string>
 </resources>

@@ -15,6 +15,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -22,6 +23,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -29,6 +31,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import music.musicplay.Euphoria
+import music.musicplay.Quintessential
 import music.musicplay.R
 import music.musicplay.Stab
 import music.musicplay.prescrazy.CrazyViewModel
@@ -37,7 +40,7 @@ import music.musicplay.prescrazy.CrazyViewModel
 @Composable
 fun EuphoriaScene() {
     //Game
-
+    val activity = LocalContext.current as Euphoria
     val crazyViewModel = viewModel<CrazyViewModel>()
     val scores = crazyViewModel.existenceScores.collectAsState()
 
@@ -53,6 +56,20 @@ fun EuphoriaScene() {
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.FillBounds
         )
+
+        Icon(
+            imageVector = Icons.Default.Close,
+            contentDescription = "close",
+            modifier = Modifier
+                .align(Alignment.TopEnd)
+                .size(64.dp)
+                .padding(16.dp)
+                .clickable {
+                    activity.navigateToQuintessential()
+                }
+        )
+
+
 
         Gameplay(crazyViewModel)
         Scores(scores = scores.value)

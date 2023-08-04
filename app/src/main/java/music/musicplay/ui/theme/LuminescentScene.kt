@@ -21,6 +21,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import music.musicplay.R
@@ -58,14 +59,15 @@ fun LuminescentScene(){
 
         BasicTextField(
             value = name.value,
-            textStyle = TextStyle(color = CrazyWhite),
+            textStyle = TextStyle(color = CrazyWhite, textAlign = TextAlign.Center),
             modifier = Modifier
                 .width(256.dp)
                 .border(BorderStroke(1.dp, CrazyWhite), shape = RoundedCornerShape(4.dp))
                 .align(Alignment.Center),
             onValueChange = {
-                name.value = it
-                sp.edit().putString(Stab.SHARE_USER_NAME, it).apply()
+                val newValue = it.replace("\n", "")
+                name.value = newValue
+                sp.edit().putString(Stab.SHARE_USER_NAME, newValue).apply()
             }
         )
     }
