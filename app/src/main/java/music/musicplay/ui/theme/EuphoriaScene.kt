@@ -196,7 +196,7 @@ fun BoxScope.Gameplay(vm: CrazyViewModel){
 
 
 @Composable
-fun BoxScope.GameOverScreen(msg: String){
+fun GameOverScreen(msg: String){
 
     val activity = LocalContext.current as Euphoria
 

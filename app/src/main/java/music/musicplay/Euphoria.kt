@@ -27,7 +27,7 @@ class Euphoria : ComponentActivity() {
     }
 
     override fun onBackPressed() {
-        //do nothing
+        navigateToQuintessential()
     }
 
 }
