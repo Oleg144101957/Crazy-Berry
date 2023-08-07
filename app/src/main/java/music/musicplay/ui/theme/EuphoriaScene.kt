@@ -73,6 +73,13 @@ fun EuphoriaScene() {
 
         Gameplay(crazyViewModel)
         Scores(scores = scores.value)
+
+        if (scores.value>5){
+            Box(modifier = Modifier
+                .fillMaxSize()){
+                GameOverScreen(msg = "You win, your scores ${scores.value}")
+            }
+        }
     }
 }
 @Composable

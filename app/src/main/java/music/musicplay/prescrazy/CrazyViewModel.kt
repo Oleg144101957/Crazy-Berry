@@ -44,10 +44,14 @@ class CrazyViewModel : ViewModel() {
     ))
 
     suspend fun initialStateOfNewGame(){
+        val shuffledList = existenceList.value.shuffled()
+        existenceList.value = shuffledList
+
         delay(1500)
         val newList = existenceList.value.map {
             it.copy(starMenu = StarMenu(false))
         }
+
         existenceList.value = newList
 
         while (existenceTime.value>0){
